@@ -8,11 +8,13 @@ var logger = require('morgan');
 var exphbs = require('express-handlebars');
 const app = express();
 
+
 // Configure view engine
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 //khai báo router (1)
 var productRouter = require('./routes/product');
+
 
 
 //khai báo body-parser
@@ -51,6 +53,7 @@ app.use('/product', productRouter);
 app.use(function(req, res, next) {
   next(createError(404));
 });
+
 
 // error handler
 app.use(function(err, req, res, next) {

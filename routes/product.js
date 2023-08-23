@@ -40,8 +40,23 @@ router.post('/edit/:id', async (req, res) => {
 
 router.post('/search', async (req, res) => {
    var keyword = req.body.keyword;
-   var products = await ProductModel.find({ name: new RegExp(keyword, "i") });
+   var products = await ProductModel.find({ name : new RegExp(keyword, "i")})
+   res.render('product/productList', { products: products });
+})
+
+router.get('/category/:category', async (req, res) => {
+   const category = req.params.category;
+   if (category === 'all') {
+       var products = await ProductModel.find();
+   } else {
+       var products = await ProductModel.find({ category: category });
+   }
    res.render('product/productList', { products: products });
 });
 
+
+
 module.exports = router;
+
+
+

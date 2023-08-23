@@ -57,7 +57,7 @@
         <h1 class="display-4">Edit Product</h1>
     </div>
 
-    <main class="container mt-5">
+   <main class="container mt-5">
         <div class="row justify-content-center">
             <div class="col-md-6">
                 <div class="card">
@@ -65,11 +65,11 @@
                         <h2 class="card-title">Edit Product</h2>
                         <div class="form-group">
                             <label class="form-label" for="name">Name</label>
-                            <input class="form-control" type="text" name="name" value="{{ product.name }}" required>
+                            <input class="form-control" type="text" name="name" value={{ product.name }} required>
                         </div>
                         <div class="form-group">
                             <label class="form-label" for="price">Price</label>
-                            <input class="form-control" type="text" name="price" value="{{ product.price }}" required>
+                            <input class="form-control" type="text" name="price" value={{ product.price }} required>
                         </div>
                         <div class="form-group">
                             <label class="form-label" for="category">Category</label>
@@ -81,13 +81,16 @@
                             </select>
                         </div>
                         <div class="form-group">
-                            <label class="form-label" for="image">Image</label>
+                            {{!-- <label class="form-label" for="">Image</label>
                             <img src="/images/{{ product.image }}" width="100" height="100" class="d-block mb-2">
-                            <input class="form-control" type="url" name="image" required>
+                            <input class="form-control" type="file" name="image" value={{ product.image }} required> --}}
+                            <label class="h5 text text-success" for="">Image</label><br>
+                           <img src="/images/{{ product.image }}" width="100" height="100">
+                           <input class="form-control" type="file" name="image" value={{ product.image }} required>
                         </div>
                         <div class="form-group">
                             <label class="form-label" for="stock">Stock</label>
-                            <input class="form-control" type="number" name="stock" value="{{ product.stock }}" required min="0">
+                            <input class="form-control" type="number" name="stock" value={{ product.stock }} required min="0">
                         </div>
                         <div class="form-group text-center mt-4">
                             <button class="btn btn-primary" type="submit">Edit Product</button>
